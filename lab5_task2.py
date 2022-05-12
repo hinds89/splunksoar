@@ -78,6 +78,22 @@ def code_1(action=None, success=None, container=None, results=None, handle=None,
     return
 
 
+def call_api_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("call_api_2() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    return
+
+
 def on_finish(container, summary):
     phantom.debug("on_finish() called")
 
