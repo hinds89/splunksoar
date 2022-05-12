@@ -106,6 +106,8 @@ def add_comment_2(action=None, success=None, container=None, results=None, handl
 
     phantom.comment(container=container, comment=format_2)
 
+    update_event_1(container=container)
+
     return
 
 
@@ -135,6 +137,47 @@ def format_2(action=None, success=None, container=None, results=None, handle=Non
     phantom.format(container=container, template=template, parameters=parameters, name="format_2")
 
     add_comment_2(container=container)
+
+    return
+
+
+def update_event_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("update_event_1() called")
+
+    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+
+    comment_formatted_string = phantom.format(
+        container=container,
+        template="""This notable event is being processed in SOAR, see: {0}\n""",
+        parameters=[
+            "container:url"
+        ])
+
+    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.event_id","artifact:*.id"])
+
+    parameters = []
+
+    # build parameters list for 'update_event_1' call
+    for container_artifact_item in container_artifact_data:
+        if container_artifact_item[0] is not None:
+            parameters.append({
+                "status": "in progress",
+                "event_ids": container_artifact_item[0],
+                "comment": comment_formatted_string,
+                "context": {'artifact_id': container_artifact_item[1]},
+            })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.act("update event", parameters=parameters, name="update_event_1", assets=["mysplunk"])
 
     return
 
