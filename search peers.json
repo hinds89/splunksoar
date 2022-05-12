@@ -35,21 +35,28 @@
                     "targetPort": "6_in"
                 },
                 {
-                    "id": "port_6_to_port_8",
-                    "sourceNode": "6",
-                    "sourcePort": "6_out",
-                    "targetNode": "8",
-                    "targetPort": "8_in"
-                },
-                {
                     "id": "port_8_to_port_1",
                     "sourceNode": "8",
                     "sourcePort": "8_out",
                     "targetNode": "1",
                     "targetPort": "1_in"
+                },
+                {
+                    "id": "port_6_to_port_9",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "9",
+                    "targetPort": "9_in"
+                },
+                {
+                    "id": "port_9_to_port_8",
+                    "sourceNode": "9",
+                    "sourcePort": "9_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
                 }
             ],
-            "hash": "da8fb48c6b6e156395a141b57fa8a81f3b9e6b81",
+            "hash": "8fe5b75c6a267658c48c8275003f9cb7b25c3fdd",
             "nodes": {
                 "0": {
                     "data": {
@@ -81,7 +88,7 @@
                     "type": "end",
                     "userCode": "\n    # This function is called after all actions are completed.\n    # summary of all the action and/or all details of actions\n    # can be collected here.\n\n    # summary_json = phantom.get_summary()\n    # if 'result' in summary_json:\n        # for action_result in summary_json['result']:\n            # if 'action_run_id' in action_result:\n                # action_results = phantom.get_action_results(action_run_id=action_result['action_run_id'], result_data=False, flatten=False)\n                # phantom.debug(action_results)\n\n",
                     "x": 20,
-                    "y": 888
+                    "y": 1036
                 },
                 "3": {
                     "data": {
@@ -418,6 +425,68 @@
                     "id": "8",
                     "type": "action",
                     "x": 0,
+                    "y": 888
+                },
+                "9": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "lab5",
+                            "repoName": "splunksoar"
+                        },
+                        "functionId": 3,
+                        "functionName": "lab5_3",
+                        "id": "9",
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "lab5": {
+                                "description": "Custom function to parse search results from the server_peer search and store them in a new custom list.",
+                                "fields": [
+                                    {
+                                        "dataTypes": [
+                                            "phantom container id"
+                                        ],
+                                        "description": "Please enter the result data without the asterisk, i.e. 'run_query_1:action_result.data'",
+                                        "inputType": "list",
+                                        "label": "current_container_id",
+                                        "name": "current_container_id",
+                                        "placeholder": "run_query_1:action_result.data",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "splunk query"
+                                        ],
+                                        "description": "",
+                                        "inputType": "list",
+                                        "label": "peer_list_results",
+                                        "name": "peer_list_results",
+                                        "placeholder": "",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "lab5",
+                                "name": "lab5"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "lab5": {
+                                "current_container_id": "container:id",
+                                "peer_list_results": "run_query_1:action_result.data"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "9",
+                    "type": "utility",
+                    "x": 0,
                     "y": 740
                 }
             },
@@ -430,7 +499,7 @@
         "schema": "5.0.6",
         "version": "5.3.0.84310"
     },
-    "create_time": "2022-05-12T05:23:00.278755+00:00",
+    "create_time": "2022-05-12T13:06:23.333420+00:00",
     "draft_mode": false,
     "labels": [
         "notable"

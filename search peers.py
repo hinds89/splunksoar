@@ -70,8 +70,8 @@ def run_query_1(action=None, success=None, container=None, results=None, handle=
 
     if query_formatted_string is not None:
         parameters.append({
-            "command": "| savedsearch",
             "query": query_formatted_string,
+            "command": "| savedsearch",
         })
 
     ################################################################################
@@ -106,7 +106,7 @@ def add_comment_2(action=None, success=None, container=None, results=None, handl
 
     phantom.comment(container=container, comment=format_2)
 
-    update_event_1(container=container)
+    lab5_3(container=container)
 
     return
 
@@ -162,8 +162,8 @@ def update_event_1(action=None, success=None, container=None, results=None, hand
         if container_artifact_item[0] is not None:
             parameters.append({
                 "status": "in progress",
-                "event_ids": container_artifact_item[0],
                 "comment": comment_formatted_string,
+                "event_ids": container_artifact_item[0],
                 "context": {'artifact_id': container_artifact_item[1]},
             })
 
@@ -178,6 +178,36 @@ def update_event_1(action=None, success=None, container=None, results=None, hand
     ################################################################################
 
     phantom.act("update event", parameters=parameters, name="update_event_1", assets=["mysplunk"])
+
+    return
+
+
+def lab5_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("lab5_3() called")
+
+    id_value = container.get("id", None)
+    run_query_1_result_data = phantom.collect2(container=container, datapath=["run_query_1:action_result.data","run_query_1:action_result.parameter.context.artifact_id"], action_results=results)
+
+    run_query_1_result_item_0 = [item[0] for item in run_query_1_result_data]
+
+    parameters = []
+
+    parameters.append({
+        "current_container_id": id_value,
+        "peer_list_results": run_query_1_result_item_0,
+    })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="splunksoar/lab5", parameters=parameters, name="lab5_3", callback=update_event_1)
 
     return
 
