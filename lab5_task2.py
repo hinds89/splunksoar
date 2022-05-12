@@ -39,7 +39,41 @@ def custom_list_enumerate_1(action=None, success=None, container=None, results=N
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/custom_list_enumerate", parameters=parameters, name="custom_list_enumerate_1")
+    phantom.custom_function(custom_function="community/custom_list_enumerate", parameters=parameters, name="custom_list_enumerate_1", callback=decision_1)
+
+    return
+
+
+def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("decision_1() called")
+
+    # check for 'if' condition 1
+    found_match_1 = phantom.decision(
+        container=container,
+        conditions=[
+            ["custom_list:temp_1216", "==", "critical"]
+        ])
+
+    # call connected blocks if condition 1 matched
+    if found_match_1:
+        code_1(action=action, success=success, container=container, results=results, handle=handle)
+        return
+
+    return
+
+
+def code_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("code_1() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+    phantom.debug("the code was called")
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     return
 
