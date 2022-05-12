@@ -3,8 +3,8 @@ def lab5(current_container_id=None, peer_list_results=None, **kwargs):
     Custom function to parse search results from the server_peer search and store them in a new custom list.
     
     Args:
-        current_container_id (CEF type: phantom container id): Please enter the result data without the asterisk, i.e. 'run_query_1:action_result.data'
-        peer_list_results (CEF type: splunk query)
+        current_container_id (CEF type: phantom container id): pass in the container id
+        peer_list_results (CEF type: splunk query): Please enter the result data without the asterisk, i.e. 'run_query_1:action_result.data'
     
     Returns a JSON-serializable object that implements the configured data paths:
         
