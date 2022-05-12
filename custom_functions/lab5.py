@@ -22,7 +22,7 @@ def lab5(current_container_id=None, peer_list_results=None, **kwargs):
     
     # clear list if already exists
     # phantom.remove_list(list_name=list_name)
-    phantom.debug(peer_list_results[0][0])
+    phantom.debug(peer_list_results)
     
     # add items to list
     #for item in peer_list_results[0][0]:
