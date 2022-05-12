@@ -33,6 +33,7 @@
                     "targetPort": "4_in"
                 }
             ],
+            "hash": "5dd6e35a7344936c60a82827b06db2e2570b80e3",
             "nodes": {
                 "0": {
                     "data": {
@@ -124,7 +125,7 @@
                                     {
                                         "conditionIndex": 0,
                                         "op": "==",
-                                        "param": "custom_list:temp_1216",
+                                        "param": "custom_list_enumerate_1:custom_function_result.data",
                                         "value": "critical"
                                     }
                                 ],
@@ -180,7 +181,7 @@
         "schema": "5.0.6",
         "version": "5.3.0.84310"
     },
-    "create_time": "2022-05-12T13:19:12.360955+00:00",
+    "create_time": "2022-05-12T13:19:57.770289+00:00",
     "draft_mode": false,
     "labels": [
         "*"
