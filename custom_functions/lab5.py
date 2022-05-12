@@ -22,11 +22,13 @@ def lab5(current_container_id=None, peer_list_results=None, **kwargs):
     
     # clear list if already exists
     # phantom.remove_list(list_name=list_name)
+    phantom.debug(peer_list_results[0][0])
     
     # add items to list
     for item in peer_list_results[0][0]:
         value_to_add = [ item['peer'], item['priority'], item['count'] ]
-        phantom.add_list(list_name=list_name, values=value_to_add)
+        #phantom.add_list(list_name=list_name, values=value_to_add)
+    phantom.debug(value_to_add)
     
     # Return a JSON-serializable object
     assert json.dumps(outputs)  # Will raise an exception if the :outputs: object is not JSON-serializable
