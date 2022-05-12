@@ -84,7 +84,57 @@ def run_query_1(action=None, success=None, container=None, results=None, handle=
     ## Custom Code End
     ################################################################################
 
-    phantom.act("run query", parameters=parameters, name="run_query_1", assets=["mysplunk"])
+    phantom.act("run query", parameters=parameters, name="run_query_1", assets=["mysplunk"], callback=format_2)
+
+    return
+
+
+def add_comment_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("add_comment_2() called")
+
+    format_2 = phantom.get_format_data(name="format_2")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.comment(container=container, comment=format_2)
+
+    return
+
+
+def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("format_2() called")
+
+    template = """Total of {0} peers returned by search.\n\n%%\npeer: {1} communicated {2} times.  Priority of peer is {3}.\n%%\n"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "run_query_1:action_result.data.*.count",
+        "run_query_1:action_result.data.*.content.peer",
+        "run_query_1:action_result.data.*.content.count",
+        "run_query_1:action_result.data.*.content.priority"
+    ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_2")
+
+    add_comment_2(container=container)
 
     return
 
