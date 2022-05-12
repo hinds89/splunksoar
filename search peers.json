@@ -42,7 +42,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "f2cc170f899746f124958f4bf1c4f2ec742e1430",
+            "hash": "e78ec3ce0d176357c790f7f65d7b9de0bbe7a1cb",
             "nodes": {
                 "0": {
                     "data": {
@@ -363,14 +363,14 @@
                             "run_query_1:action_result.data.*.content.count",
                             "run_query_1:action_result.data.*.content.priority"
                         ],
-                        "template": "Total of {0} peers returned by search.\n\n%%\npeer: {1} communicated {2} times.  Priority of peer is {3}.\n%%\n",
+                        "template": "Total of {0} peers returned by search.\n\npeer: {1} communicated {2} times.  Priority of peer is {3}.",
                         "type": "format"
                     },
                     "errors": {},
                     "id": "7",
                     "type": "format",
                     "x": 0,
-                    "y": 444
+                    "y": 440
                 }
             },
             "notes": ""
@@ -382,7 +382,7 @@
         "schema": "5.0.6",
         "version": "5.3.0.84310"
     },
-    "create_time": "2022-05-12T05:15:23.373633+00:00",
+    "create_time": "2022-05-12T05:16:45.988831+00:00",
     "draft_mode": false,
     "labels": [
         "notable"
