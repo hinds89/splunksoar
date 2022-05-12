@@ -112,7 +112,7 @@ def add_comment_2(action=None, success=None, container=None, results=None, handl
 def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("format_2() called")
 
-    template = """Total of {0} peers returned by search.\n\npeer: {1} communicated {2} times.  Priority of peer is {3}."""
+    template = """Total of {0} peers returned by search.\n\n%%\npeer: {1} communicated {2} times.  Priority of peer is {3}.\n%%"""
 
     # parameter list for template variable replacement
     parameters = [
