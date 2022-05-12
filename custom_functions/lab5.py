@@ -21,7 +21,7 @@ def lab5(current_container_id=None, peer_list_results=None, **kwargs):
     list_name = f'temp_{current_container_id}'
     
     # clear list if already exists
-    phantom.remove_list(list_name=list_name)
+    # phantom.remove_list(list_name=list_name)
     
     # add items to list
     for item in peer_list_results[0][0]:
