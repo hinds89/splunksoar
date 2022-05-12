@@ -42,7 +42,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "e78ec3ce0d176357c790f7f65d7b9de0bbe7a1cb",
+            "hash": "e8924c31276f90fceea62b3ae47767cca93f7e31",
             "nodes": {
                 "0": {
                     "data": {
@@ -359,9 +359,9 @@
                         "id": "7",
                         "parameters": [
                             "run_query_1:action_result.summary.total_events",
-                            "run_query_1:action_result.data.*.content.peer",
-                            "run_query_1:action_result.data.*.content.count",
-                            "run_query_1:action_result.data.*.content.priority"
+                            "run_query_1:action_result.data.*.peer",
+                            "run_query_1:action_result.data.*.count",
+                            "run_query_1:action_result.data.*.priority"
                         ],
                         "template": "Total of {0} peers returned by search.\n\npeer: {1} communicated {2} times.  Priority of peer is {3}.",
                         "type": "format"
@@ -382,7 +382,7 @@
         "schema": "5.0.6",
         "version": "5.3.0.84310"
     },
-    "create_time": "2022-05-12T05:16:45.988831+00:00",
+    "create_time": "2022-05-12T05:17:43.072418+00:00",
     "draft_mode": false,
     "labels": [
         "notable"
