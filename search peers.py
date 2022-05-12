@@ -92,7 +92,7 @@ def run_query_1(action=None, success=None, container=None, results=None, handle=
 def add_comment_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("add_comment_2() called")
 
-    format_2__as_list = phantom.get_format_data(name="format_2__as_list")
+    format_2 = phantom.get_format_data(name="format_2")
 
     ################################################################################
     ## Custom Code Start
@@ -104,7 +104,7 @@ def add_comment_2(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.comment(container=container, comment=format_2__as_list)
+    phantom.comment(container=container, comment=format_2)
 
     return
 
