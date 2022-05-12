@@ -61,7 +61,7 @@ def run_query_1(action=None, success=None, container=None, results=None, handle=
 
     query_formatted_string = phantom.format(
         container=container,
-        template="""| savedsearch server_peer server=\"{0}\"""",
+        template="""server_peer server=\"{0}\"""",
         parameters=[
             "list_merge_1:custom_function_result.data.*.item"
         ])
@@ -70,7 +70,7 @@ def run_query_1(action=None, success=None, container=None, results=None, handle=
 
     if query_formatted_string is not None:
         parameters.append({
-            "command": "search",
+            "command": "| savedsearch",
             "query": query_formatted_string,
         })
 

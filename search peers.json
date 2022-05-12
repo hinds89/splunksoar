@@ -28,7 +28,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "b396c21f71d87b97e53e3962b57c5cc50d3b5df1",
+            "hash": "d3444b1694deebd8a513869d4b7602e054128181",
             "nodes": {
                 "0": {
                     "data": {
@@ -246,13 +246,13 @@
                         "functionName": "run_query_1",
                         "id": "4",
                         "parameters": {
-                            "command": "search",
+                            "command": "| savedsearch",
                             "query": {
                                 "functionId": 1,
                                 "parameters": [
                                     "list_merge_1:custom_function_result.data.*.item"
                                 ],
-                                "template": "| savedsearch server_peer server=\"{0}\""
+                                "template": "server_peer server=\"{0}\""
                             }
                         },
                         "requiredParameters": [
@@ -284,7 +284,7 @@
         "schema": "5.0.6",
         "version": "5.3.0.84310"
     },
-    "create_time": "2022-05-12T05:05:04.151355+00:00",
+    "create_time": "2022-05-12T05:07:32.573236+00:00",
     "draft_mode": false,
     "labels": [
         "notable"
