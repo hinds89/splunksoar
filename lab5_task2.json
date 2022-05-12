@@ -5,8 +5,16 @@
     "coa": {
         "data": {
             "description": "",
-            "edges": [],
-            "hash": "5c47f7214c6a29dac7763471474836b4be5cb83d",
+            "edges": [
+                {
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                }
+            ],
+            "hash": "0d4f98f4e286559aa62f7fa0f107140c08fa0717",
             "nodes": {
                 "0": {
                     "data": {
@@ -39,6 +47,53 @@
                     "userCode": "\n    # This function is called after all actions are completed.\n    # summary of all the action and/or all details of actions\n    # can be collected here.\n\n    # summary_json = phantom.get_summary()\n    # if 'result' in summary_json:\n        # for action_result in summary_json['result']:\n            # if 'action_run_id' in action_result:\n                # action_results = phantom.get_action_results(action_run_id=action_result['action_run_id'], result_data=False, flatten=False)\n                # phantom.debug(action_results)\n\n",
                     "x": 1000,
                     "y": 1000
+                },
+                "2": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "custom_list_enumerate",
+                            "repoName": "community"
+                        },
+                        "functionId": 1,
+                        "functionName": "custom_list_enumerate_1",
+                        "id": "2",
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "custom_list_enumerate": {
+                                "description": "Fetch a custom list and iterate through the rows, producing a dictionary output for each row with the row number and the value for each column.",
+                                "fields": [
+                                    {
+                                        "dataTypes": [],
+                                        "description": "the name or ID of a custom list",
+                                        "inputType": "item",
+                                        "label": "custom_list",
+                                        "name": "custom_list",
+                                        "placeholder": "my_custom_list",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "custom_list_enumerate",
+                                "name": "custom_list_enumerate"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "custom_list_enumerate": {
+                                "custom_list": "playbook_input:list_name"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "utility",
+                    "x": 980,
+                    "y": 560
                 }
             },
             "notes": ""
@@ -56,7 +111,7 @@
         "schema": "5.0.6",
         "version": "5.3.0.84310"
     },
-    "create_time": "2022-05-12T13:15:21.401388+00:00",
+    "create_time": "2022-05-12T13:16:54.510729+00:00",
     "draft_mode": false,
     "labels": [
         "*"

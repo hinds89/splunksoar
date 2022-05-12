@@ -11,9 +11,38 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-
+    # call 'custom_list_enumerate_1' block
+    custom_list_enumerate_1(container=container)
 
     return
+
+def custom_list_enumerate_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("custom_list_enumerate_1() called")
+
+    playbook_input_list_name = phantom.collect2(container=container, datapath=["playbook_input:list_name"])
+
+    parameters = []
+
+    # build parameters list for 'custom_list_enumerate_1' call
+    for playbook_input_list_name_item in playbook_input_list_name:
+        parameters.append({
+            "custom_list": playbook_input_list_name_item[0],
+        })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/custom_list_enumerate", parameters=parameters, name="custom_list_enumerate_1")
+
+    return
+
 
 def on_finish(container, summary):
     phantom.debug("on_finish() called")
